@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import cucumber.features.*;
 
 @RunWith(Suite.class)
-// @SuiteClasses({ RunnergrillaAdminPicking.class })
+//
 public class SuiteR1_Cucumber {
 
 }
