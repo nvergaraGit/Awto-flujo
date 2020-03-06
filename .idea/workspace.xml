@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3f3db883-e033-46c6-bd48-bae2b7043637" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/features/AdmPicking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/features/Feature_AdmPicking.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/features/RunnerAdmPicking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/features/RunnerAdmPicking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/C1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/IElements.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/Inicio2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/Wd.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +37,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/cucumber/features" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cucumber.features" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nisum\workspace\Awto-flujo\src\test\java\cucumber\features" />
     </key>
   </component>
   <component name="RunManager">

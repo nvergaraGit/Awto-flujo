@@ -28,7 +28,7 @@ import com.cucumber.listener.Reporter;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/cucumber",
     // glue={"stepDefinition"},
-    tags = "@loginadmpicking",
+    tags = "@loginregistroAwto",
 
 
     // format={"json:target/cucumber.json", "html:target/site/cucumber-pretty"},
