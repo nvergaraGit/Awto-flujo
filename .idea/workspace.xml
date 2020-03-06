@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3f3db883-e033-46c6-bd48-bae2b7043637" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/features/AdmPicking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/features/Feature_AdmPicking.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cucumber/features/RunnerAdmPicking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumber/features/RunnerAdmPicking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/C1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/IElements.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/Inicio2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/Wd.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,13 +33,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pages" />
       <recent name="cucumber.features" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Nisum\workspace\Awto-flujo\src\test\java\cucumber\features" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cucumber java.Scenario: Registro nuevo usuario en awto">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -56,6 +49,41 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: Feature_registroAwto" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/cucumber/features/Feature_registroAwto.feature" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="juridico" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="SUGGESTED_NAME" value="Feature: Feature_registroAwto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Registro nuevo usuario en awto" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/cucumber/features/Feature_registroAwto.feature" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="juridico" />
+      <option name="NAME_FILTER" value="^Registro nuevo usuario en awto$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Registro nuevo usuario en awto$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Registro nuevo usuario en awto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -105,6 +133,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber java.Scenario: Registro nuevo usuario en awto" />
+        <item itemvalue="Cucumber java.Feature: Feature_registroAwto" />
         <item itemvalue="JUnit.M1" />
       </list>
     </recent_temporary>
@@ -122,17 +152,6 @@
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="M1 - 2018.03.22 at 16h 51m 20s.xml">
-      <configuration name="M1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="M1 - 2018.03.22 at 16h 52m 41s.xml">
-      <configuration name="M1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="M1 - 2018.03.22 at 16h 53m 10s.xml">
-      <configuration name="M1" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -147,10 +166,30 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="484" y="82" key="#Scenario:_Registro_nuevo_usuario_en_awto" timestamp="1583466031076">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="484" y="82" key="#Scenario:_Registro_nuevo_usuario_en_awto/0.0.1536.824@0.0.1536.824" timestamp="1583466031076" />
     <state x="448" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583436043816">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="448" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1583436043816" />
+    <state width="1491" height="202" key="GridCell.Tab.0.bottom" timestamp="1583466041930">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="202" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583466041930" />
+    <state width="1491" height="202" key="GridCell.Tab.0.center" timestamp="1583466041929">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="202" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583466041929" />
+    <state width="1491" height="202" key="GridCell.Tab.0.left" timestamp="1583466041929">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="202" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583466041929" />
+    <state width="1491" height="202" key="GridCell.Tab.0.right" timestamp="1583466041929">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="202" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583466041929" />
   </component>
   <component name="masterDetails">
     <states>
