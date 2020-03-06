@@ -71,9 +71,9 @@ public class registroAwto {
 
     @When("^Se ingresan datos personales uno$")
     public void se_ingresan_datos_personales_uno() {
-        inicioPage.getlabelnombre().sendKeys("Francisco9");
-        inicioPage.getlabelapellido().sendKeys("Soto9");
-        inicioPage.getlabelemail().sendKeys("fsoto9@awto.cl");
+        inicioPage.getlabelnombre().sendKeys("Luis1");
+        inicioPage.getlabelapellido().sendKeys("Sandoval1");
+        inicioPage.getlabelemail().sendKeys("lsandoval1@awto.cl");
         inicioPage.getlabelpass().sendKeys("123456");
         inicioPage.getlabelconfpass().sendKeys("123456");
 
@@ -205,7 +205,7 @@ public class registroAwto {
     @When("^Se visualiza paso final$")
     public void se_visualiza_paso_final() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -214,6 +214,7 @@ public class registroAwto {
     @Then("^Flujo terminado$")
     public void flujo_terminado() {
         System.out.println("Registro OK");
+        inicioPage.cierre();
     }
 }
 

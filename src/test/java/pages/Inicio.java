@@ -197,5 +197,10 @@ public class Inicio {
     public void clickfin() {
         fin.click();
     }
+
+    public void cierre() {
+        driver.close();
+        driver.quit();
+    }
 }
 
