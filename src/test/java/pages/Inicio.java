@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -116,39 +117,42 @@ public class Inicio {
     checkgenero.click();
   }
 
-  @FindBy(how = How.XPATH, using = ".//*[@id='wrapper']/div[2]/div/div[3]/div/div/div[1]/div/div[1]/div[2]/a")
+  String CUR_DIR1 = System.getProperty("user.dir");
+
+  @FindBy(how = How.XPATH, using = "//input[@id='iDFront']")
   private WebElement ced1;
 
   public void subced1() {
-    ced1.sendKeys("\\imagenes\\test\\carnet1.jpg");
+    ced1.sendKeys(CUR_DIR1 + "/imagenes/test/carnet1.jpg");
+    //ced1.sendKeys(Keys.TAB);
   }
 
-  @FindBy(how = How.XPATH, using = ".//*[@id='wrapper']/div[2]/div/div[3]/div/div/div[1]/div/div[2]/div[2]/a")
+  @FindBy(how = How.XPATH, using = "//input[@id='iDBack']")
   private WebElement ced2;
 
   public void subced2() {
-    ced2.sendKeys("\\imagenes\\test\\carnet2.jpg");
+    ced2.sendKeys(CUR_DIR1 + "/imagenes/test/carnet2.jpg");
   }
 
-  @FindBy(how = How.XPATH, using = ".//*[@id='wrapper']/div[2]/div/div[3]/div/div/div[2]/div/div[1]/div[2]/a")
+  @FindBy(how = How.XPATH, using = "//input[@id='lCFront']")
   private WebElement cond1;
 
   public void subcond1() {
-    cond1.sendKeys("\\imagenes\\test\\cont1.jpg");
+    cond1.sendKeys(CUR_DIR1 + "/imagenes/test/cond1.jpg");
   }
 
-  @FindBy(how = How.XPATH, using = ".//*[@id='wrapper']/div[2]/div/div[3]/div/div/div[2]/div/div[2]/div[2]/a")
+  @FindBy(how = How.XPATH, using = "//input[@id='lCBack']")
   private WebElement cond2;
 
   public void subcond2() {
-    cond2.sendKeys("\\imagenes\\test\\cont1.jpg");
+    cond2.sendKeys(CUR_DIR1 + "/imagenes/test/cond2.jpg");
   }
 
-  @FindBy(how = How.XPATH, using = ".//*[@id='wrapper']/div[2]/div/div[4]/div/div/div/div/div/div[2]/a")
+  @FindBy(how = How.XPATH, using = "//input[@id='selfieFront']")
   private WebElement selfie;
 
   public void subselfie() {
-    selfie.sendKeys("\\imagenes\\test\\selfie.jpg");
+    selfie.sendKeys(CUR_DIR1 + "/imagenes/test/selfie.jpg");
   }
 
   @FindBy(how = How.XPATH, using = ".//*[@id='documentSubmit']")

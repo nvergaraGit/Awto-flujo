@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -70,11 +71,28 @@ public class registroAwto {
 
   @When("^Se ingresan datos personales uno$")
   public void se_ingresan_datos_personales_uno() {
-    inicioPage.getlabelnombre().sendKeys("Nelson");
-    inicioPage.getlabelapellido().sendKeys("Vergara");
-    inicioPage.getlabelemail().sendKeys("test@awto.cl");
+    inicioPage.getlabelnombre().sendKeys("Francisco6");
+    inicioPage.getlabelapellido().sendKeys("Soto6");
+    inicioPage.getlabelemail().sendKeys("fsoto6@awto.cl");
     inicioPage.getlabelpass().sendKeys("123456");
     inicioPage.getlabelconfpass().sendKeys("123456");
+
+    inicioPage.getlabelconfpass().sendKeys(Keys.TAB);
+
+    try {
+      Thread.sleep(2000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+    inicioPage.getlabelconfpass().sendKeys(Keys.PAGE_DOWN);
+
+    try {
+      Thread.sleep(2000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
     inicioPage.clickbotonp2();
   }
 
@@ -93,11 +111,58 @@ inicioPage.getlabeldirection().sendKeys("alameda");
 inicioPage.getlabelrut().sendKeys("11111111-1");
 inicioPage.getlabelbirth().sendKeys("24/12/1978");
 inicioPage.clickcheckgenero();
+
+inicioPage.getlabelbirth().sendKeys(Keys.PAGE_DOWN);
+
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
 inicioPage.subced1();
+
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
 inicioPage.subced2();
+
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
 inicioPage.subcond1();
+
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
 inicioPage.subcond2();
+
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
 inicioPage.subselfie();
+
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+//inicioPage.getlabelbirth().sendKeys(Keys.TAB);
+//inicioPage.getlabelbirth().sendKeys(Keys.PAGE_DOWN);
+
 inicioPage.clickbotonp3();
   }
 
@@ -113,7 +178,21 @@ inicioPage.clickbotonp3();
 inicioPage.clickplan();
 inicioPage.clickacepto();
 inicioPage.clickbotontarjeta();
+
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
 inicioPage.clickpago();
+
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
 inicioPage.clickfin();
   }
 
