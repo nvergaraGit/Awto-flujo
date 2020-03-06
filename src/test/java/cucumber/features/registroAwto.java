@@ -6,6 +6,8 @@ import cucumber.api.java.en.When;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.Inicio;
 import pages.Login;
 import pages.Wd;
@@ -44,251 +46,85 @@ public class registroAwto {
       driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
     excelArchivoUser = Wd.leerArchivo("users.xls", 0);
-
   }
 
-  @Given("^Mostrar datos en grilla$")
-  public void mostrar_datos_en_grilla() {
 
+  @Given("^Registro finalizado$")
+  public void registro_finalizado() {
     driver.get(loginObject.HOME);
     driver.manage().window().maximize();
   }
 
-  @When("^Se realice la busqueda$")
-  public void se_realice_la_b_squeda() {
-
-    inicioPage.clickMenuCont();
-
-    try {
-      Thread.sleep(4000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    inicioPage.clickMenuAdmPick();
-
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    try {
-      Wd.takeScreenShotTest(driver,
-          "S1-00" + 1 + " " + Wd.BROWSER + " ADM-p�cking - Ingreso de filtros-" + date1);
-      Thread.sleep(1000);
-    } catch (Exception e) {
-      System.out.println("error: " + e);
-    }
+  @When("^Se hace click en registrate$")
+  public void se_hace_click_en_registrate() {
+    inicioPage.clickbotonRegistro();
   }
 
-  @Then("^Debe mostrar todos los datos de la base de datos para esas caracteristicas$")
-  public void debe_mostrar_todos_los_datos_de_la_base_de_datos_para_esas_caracter_sticas() {
+  @Then("^Ingreso al primer paso$")
+  public void ingreso_al_primer_paso() {
 
-    inicioPage.getmenuAdmPickDespFinal().clear();
-    inicioPage.getmenuAdmPickDespFinal().sendKeys("30/08/2018");
-    inicioPage.clickmenuAdmPickDespFinal();
-
-    try {
-      Thread.sleep(2000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    inicioPage.clickmenuAdmPickBtnBuscar();
-
-    try {
-      Thread.sleep(4000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    inicioPage.clickmenuAdmPickGrillaSelF();
-    inicioPage.clickmenuAdmPickGrillaSelAcc();
-
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    try {
-      Wd.takeScreenShotTest(driver,
-          "S1-00" + 2 + " " + Wd.BROWSER + " ADM-picking - Mostrar sin filtrar-" + date1);
-      Thread.sleep(1000);
-    } catch (Exception e) {
-      System.out.println("error: " + e);
-    }
+    WebDriverWait wait = new WebDriverWait(driver,5);
+    wait.until(ExpectedConditions.visibilityOf(inicioPage.getlabelnombre()));
+    System.out.println("Ingreso OK");
   }
 
-  @Given("^Filtrar reservas en grilla$")
-  public void filtrar_reservas_en_grilla() {
-
-    inicioPage.clickMenuCont();
-    inicioPage.clickMenuAdmPick();
+  @When("^Se ingresan datos personales uno$")
+  public void se_ingresan_datos_personales_uno() {
+    inicioPage.getlabelnombre().sendKeys("Nelson");
+    inicioPage.getlabelapellido().sendKeys("Vergara");
+    inicioPage.getlabelemail().sendKeys("test@awto.cl");
+    inicioPage.getlabelpass().sendKeys("123456");
+    inicioPage.getlabelconfpass().sendKeys("123456");
+    inicioPage.clickbotonp2();
   }
 
-  @When("^Se realice una busqueda con filtros$")
-  public void se_realice_una_b_squeda_con_filtros() {
-    driver.navigate().refresh();
+  @Then("^Ingreso al segundo paso$")
+  public void ingreso_al_segundo_paso() {
+    WebDriverWait wait = new WebDriverWait(driver,5);
+    wait.until(ExpectedConditions.visibilityOf(inicioPage.getlabelmobile()));
+    System.out.println("Ingreso Paso 2 OK");
   }
 
-  @Then("^Debe mostrar las reservas con los filtros indicados$")
-  public void debe_mostrar_las_reservas_con_los_filtros_indicados() {
-
-    try {
-      Thread.sleep(4000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    inicioPage.getmenuAdmPickDespInicial().sendKeys("05/06/2018");
-    inicioPage.clickmenuAdmPickDespInicial();
-
-    inicioPage.getmenuAdmPickDespFinal().clear();
-    inicioPage.getmenuAdmPickDespFinal().sendKeys("08/07/2018");
-    inicioPage.clickmenuAdmPickDespFinal();
-
-    try {
-      Thread.sleep(2000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    if (inicioPage.getmenuAdmPickNumReserva().isEnabled()) {
-
-      inicioPage.clickmenuAdmPickBtnBuscar();
-
-      try {
-        Thread.sleep(7000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-
-      if (inicioPage.getmenuAdmPickNoHayResp().isDisplayed()) {
-
-        try {
-          Wd.takeScreenShotTest(driver, "S2-00" + 1 + " " + Wd.BROWSER
-              + " ADM-picking - Sin resultados con filtros -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-
-      } else if (inicioPage.getmenuAdmPickGrillaSelF().isEnabled()) {
-
-        inicioPage.clickmenuAdmPickGrillaSelF();
-        inicioPage.clickmenuAdmPickGrillaSelAcc();
-
-        try {
-          Wd.takeScreenShotTest(driver, "S2-00" + 2 + " " + Wd.BROWSER
-              + " ADM-picking - Con resultados con filtros -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-      } else {
-
-        try {
-          Wd.takeScreenShotTest(driver, "S2-00" + 3 + " " + Wd.BROWSER
-              + " ADM-picking - Con resultados ERROR -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-        System.out.print("Validar error con dev");
-        System.out.print("\n");
-      }
-    }
-
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    // }
+  @When("^Se ingresan datos personales dos$")
+  public void se_ingresan_datos_personales_dos() {
+inicioPage.getlabelmobile().sendKeys("56998776549");
+inicioPage.getlabelnewpin().sendKeys("1234");
+inicioPage.getlabeldirection().sendKeys("alameda");
+inicioPage.getlabelrut().sendKeys("11111111-1");
+inicioPage.getlabelbirth().sendKeys("24/12/1978");
+inicioPage.clickcheckgenero();
+inicioPage.subced1();
+inicioPage.subced2();
+inicioPage.subcond1();
+inicioPage.subcond2();
+inicioPage.subselfie();
+inicioPage.clickbotonp3();
   }
 
-  @Given("^Hacer un quiebre de una reserva$")
-  public void hacer_un_quiebre_de_una_reserva() {
-
-    inicioPage.clickMenuCont();
-    inicioPage.clickMenuAdmPick();
+  @Then("^Ingreso al tercer paso$")
+  public void ingreso_al_tercer_paso() {
+    WebDriverWait wait = new WebDriverWait(driver,3);
+    //wait.until(ExpectedConditions.visibilityOf(inicioPage.getlabelnombre()));
+    System.out.println("Ingreso Paso 3 OK");
   }
 
-  @When("^Se procese a ingresar el quiebre en pantalla DAD$")
-  public void se_procese_a_ingresar_el_quiebre_en_pantalla_DAD() {
-    driver.navigate().refresh();
+  @When("^Se ingresan datos de membresia$")
+  public void se_ingresan_datos_de_membresia() {
+inicioPage.clickplan();
+inicioPage.clickacepto();
+inicioPage.clickbotontarjeta();
+inicioPage.clickpago();
+inicioPage.clickfin();
   }
 
-  @Then("^Se debe poder ingresar SKU substituto del articulo Quebrado$")
-  public void se_debe_poder_ingresar_SKU_substituto_del_articulo_Quebrado() {
+  @Then("^Ingreso al paso final$")
+  public void ingreso_al_paso_final() {
+    WebDriverWait wait = new WebDriverWait(driver,3);
+    System.out.println("Ingreso Paso final OK");
+  }
 
-    try {
-      Thread.sleep(4000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    inicioPage.getmenuAdmPickDespInicial().sendKeys("05/06/2018");
-    inicioPage.clickmenuAdmPickDespInicial();
-
-    inicioPage.getmenuAdmPickDespFinal().clear();
-    inicioPage.getmenuAdmPickDespFinal().sendKeys("08/07/2018");
-    inicioPage.clickmenuAdmPickDespFinal();
-
-    try {
-      Thread.sleep(2000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    if (inicioPage.getmenuAdmPickNumReserva().isEnabled()) {
-
-      inicioPage.clickmenuAdmPickBtnBuscar();
-
-      try {
-        Thread.sleep(7000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-
-      if (inicioPage.getmenuAdmPickNoHayResp().isDisplayed()) {
-
-        try {
-          Wd.takeScreenShotTest(driver, "S3-00" + 1 + " " + Wd.BROWSER
-              + " ADM-picking - Sin resultados con filtros -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-
-      } else if (inicioPage.getmenuAdmPickGrillaSelF().isEnabled()) {
-
-        inicioPage.clickmenuAdmPickGrillaSelF();
-        inicioPage.clickmenuAdmPickGrillaSelAcc();
-
-        try {
-          Wd.takeScreenShotTest(driver, "S3-00" + 2 + " " + Wd.BROWSER
-              + " ADM-picking - Con resultados con filtros -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-      } else {
-
-        try {
-          Wd.takeScreenShotTest(driver, "S3-00" + 3 + " " + Wd.BROWSER
-              + " ADM-picking - Con resultados ERROR -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-        System.out.print("Validar error con dev");
-        System.out.print("\n");
-      }
-    }
-
+  @When("^Se visualiza paso final$")
+  public void se_visualiza_paso_final() {
     try {
       Thread.sleep(3000);
     } catch (InterruptedException e) {
@@ -296,181 +132,12 @@ public class registroAwto {
     }
   }
 
-  @Given("^Se tiene un quiebre de una reserva$")
-  public void se_tiene_un_quiebre_de_una_reserva() {
-
-    inicioPage.clickMenuCont();
-    inicioPage.clickMenuAdmPick();
+  @Then("^Flujo terminado$")
+  public void flujo_terminado() {
+    System.out.println("Registro OK");
   }
 
-  @When("^No se tenga el SKU substituto del articulo quebrado$")
-  public void no_se_tenga_el_SKU_substituto_del_articulo_quebrado() {
-    driver.navigate().refresh();
-  }
 
-  @Then("^Se debe poder dejar en blanco el campo SKU Substituto$")
-  public void se_debe_poder_dejar_en_blanco_el_campo_SKU_Substituto() {
 
-    try {
-      Thread.sleep(4000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    inicioPage.getmenuAdmPickDespInicial().sendKeys("05/06/2018");
-    inicioPage.clickmenuAdmPickDespInicial();
-
-    inicioPage.getmenuAdmPickDespFinal().clear();
-    inicioPage.getmenuAdmPickDespFinal().sendKeys("08/07/2018");
-    inicioPage.clickmenuAdmPickDespFinal();
-
-    try {
-      Thread.sleep(2000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    if (inicioPage.getmenuAdmPickNumReserva().isEnabled()) {
-
-      inicioPage.clickmenuAdmPickBtnBuscar();
-
-      try {
-        Thread.sleep(7000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-
-      if (inicioPage.getmenuAdmPickNoHayResp().isDisplayed()) {
-
-        try {
-          Wd.takeScreenShotTest(driver, "S4-00" + 1 + " " + Wd.BROWSER
-              + " ADM-picking - Sin resultados con filtros -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-
-      } else if (inicioPage.getmenuAdmPickGrillaSelF().isEnabled()) {
-
-        inicioPage.clickmenuAdmPickGrillaSelF();
-        inicioPage.clickmenuAdmPickGrillaSelAcc();
-
-        try {
-          Wd.takeScreenShotTest(driver, "S4-00" + 2 + " " + Wd.BROWSER
-              + " ADM-picking - Con resultados con filtros -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-      } else {
-
-        try {
-          Wd.takeScreenShotTest(driver, "S4-00" + 3 + " " + Wd.BROWSER
-              + " ADM-picking - Con resultados ERROR -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-        System.out.print("Validar error con dev");
-        System.out.print("\n");
-      }
-    }
-
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    // }
-  }
-
-  @Given("^Se requiere ingresar SKU substituto de articulo quebrado$")
-  public void se_requiere_ingresar_SKU_substituto_de_articulo_quebrado() {
-
-    inicioPage.clickmenuAdmPickDespFinal();
-    inicioPage.getmenuAdmPickDespFinal().clear();
-    inicioPage.getmenuAdmPickDespFinal().sendKeys("30/06/2018");
-  }
-
-  @When("^Se ingrese SKU substituto$")
-  public void se_ingrese_SKU_substituto() {
-    driver.navigate().refresh();
-  }
-
-  @Then("^Se debe efectuar validacion para verificar si el SKU es valido -Familia y SKU valido-$")
-  public void se_debe_efectuar_validaci_n_para_verificar_si_el_SKU_es_v_lido_Familia_y_SKU_valido() {
-
-    try {
-      Thread.sleep(4000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    inicioPage.getmenuAdmPickDespInicial().sendKeys("05/06/2018");
-    inicioPage.clickmenuAdmPickDespInicial();
-
-    inicioPage.getmenuAdmPickDespFinal().clear();
-    inicioPage.getmenuAdmPickDespFinal().sendKeys("08/07/2018");
-    inicioPage.clickmenuAdmPickDespFinal();
-
-    try {
-      Thread.sleep(2000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    if (inicioPage.getmenuAdmPickNumReserva().isEnabled()) {
-
-      inicioPage.clickmenuAdmPickBtnBuscar();
-
-      try {
-        Thread.sleep(7000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-
-      if (inicioPage.getmenuAdmPickNoHayResp().isDisplayed()) {
-
-        try {
-          Wd.takeScreenShotTest(driver, "S5-00" + 1 + " " + Wd.BROWSER
-              + " ADM-picking - Sin resultados con filtros -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-
-      } else if (inicioPage.getmenuAdmPickGrillaSelF().isEnabled()) {
-
-        inicioPage.clickmenuAdmPickGrillaSelF();
-        inicioPage.clickmenuAdmPickGrillaSelAcc();
-
-        try {
-          Wd.takeScreenShotTest(driver, "S5-00" + 2 + " " + Wd.BROWSER
-              + " ADM-picking - Con resultados con filtros -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-      } else {
-
-        try {
-          Wd.takeScreenShotTest(driver, "S5-00" + 3 + " " + Wd.BROWSER
-              + " ADM-picking - Con resultados ERROR -" + date1 + "-");
-          Thread.sleep(1000);
-        } catch (Exception e) {
-          System.out.println("error: " + e);
-        }
-        System.out.print("Validar error con dev");
-        System.out.print("\n");
-      }
-    }
-
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-  }
 
 }
